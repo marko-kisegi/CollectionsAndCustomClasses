@@ -15,8 +15,23 @@ public class Student implements Comparable<Student> {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.studentID = this.studentID;
+		this.studentID = studentID;
 		this.points = points;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public String getStudentID() {
+		return studentID;
+	}
+	
+	public int getPoints() {
+		return points;
 	}
 	@Override 
 	public String toString(){
@@ -40,11 +55,12 @@ public class Student implements Comparable<Student> {
 		return this.studentID.compareTo(o.studentID);
 	}
 	
+
 	private static Comparator<Object> comparator = Collator.getInstance(Locale.forLanguageTag("hr"));
-	private static final Comparator<Student> BY_LAST_NAME = (o1, o2) -> comparator.compare(o1.lastName, o1.lastName);
-	private static final Comparator<Student> BY_FIRST_NAME = (o1, o2) -> comparator.compare(o1.lastName, o2.lastName);	
-	private static final Comparator<Student> BY_POINTS = (o1, o2) -> Integer.compare(o1.points, o2.points);
-	private static final Comparator<Student> BY_STUDENT_ID = (o1, o2) -> o1.studentID.compareTo(o2.studentID);
+	public static final Comparator<Student> BY_LAST_NAME = (o1, o2) -> comparator.compare(o1.lastName, o1.lastName);
+	public static final Comparator<Student> BY_FIRST_NAME = (o1, o2) -> comparator.compare(o1.lastName, o2.lastName);	
+	public static final Comparator<Student> BY_POINTS = (o1, o2) -> Integer.compare(o1.points, o2.points);
+	public static final Comparator<Student> BY_STUDENT_ID = (o1, o2) -> o1.studentID.compareTo(o2.studentID);
 	
 	
 }
